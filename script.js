@@ -32,8 +32,8 @@ class LinkedList {
     
     prepend = (value) => {
         const node = new Node(value);
+        node.next = this.head;
         this.head = node;
-
     }
 }
 
@@ -43,5 +43,6 @@ list.append('2nd');
 list.append('3rd');
 list.append('4th');
 list.prepend('new first');
+list.prepend('new new first');
 
 console.log(list);
