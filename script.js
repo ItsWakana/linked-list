@@ -28,12 +28,20 @@ class LinkedList {
 
         const lastNode = findEnd(this.head);
         lastNode.next = node;
-    }   
+    }
+    
+    prepend = (value) => {
+        const node = new Node(value);
+        this.head = node;
+
+    }
 }
 
 const list = new LinkedList;
 
-list.append('another node');
+list.append('2nd');
 list.append('3rd');
 list.append('4th');
+list.prepend('new first');
+
 console.log(list);
