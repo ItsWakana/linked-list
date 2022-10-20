@@ -55,7 +55,24 @@ class LinkedList {
 
     tail = () => {
         const lastNode = this.findLast(this.head);
-        console.log(lastNode);
+        return lastNode;
+    }
+
+    at = (index) => {
+        let counter = 1;
+        let temp = this.head;
+
+        if (counter === index) {
+            return temp;
+        }
+
+        while (temp.next !== null) {
+            temp = temp.next;
+            counter++;
+            if (counter === index) {
+                return temp;
+            }
+        }
     }
 
 
@@ -69,4 +86,3 @@ list.append('4th');
 list.prepend('new first');
 list.prepend('new new first');
 list.append('last item');
-list.headNode();
