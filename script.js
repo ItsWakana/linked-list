@@ -16,19 +16,17 @@ class LinkedList {
     constructor() {
         this.head = new Node('one');
     }
-
-    findLast = (node) => {
-        if (node.next === null) {
-            return node;
-        }
-        return this.findLast(node.next);
-    }
     
     append = (value) => {
         const node = new Node(value);
 
-        const lastNode = this.findLast(this.head);
-        lastNode.next = node;
+        let temp = this.head;
+
+        while (temp.next !== null) {
+            temp = temp.next;
+
+        }
+        temp.next = node;
     }
     
     prepend = (value) => {
@@ -85,3 +83,5 @@ list.append('4th');
 list.prepend('new first');
 list.prepend('new new first');
 list.append('last item');
+
+console.log(list);
