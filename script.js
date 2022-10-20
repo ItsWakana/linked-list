@@ -72,6 +72,20 @@ class LinkedList {
         }
     }
 
+    pop = () => {
+        let temp = this.head;
+        let before;
+        let counter = 1;
+
+        while (temp.next !== null) {
+            counter++;
+            before = temp;
+            temp = temp.next;
+        }
+
+        before.next = null;
+    }
+
 
 }
 
@@ -83,5 +97,6 @@ list.append('4th');
 list.prepend('new first');
 list.prepend('new new first');
 list.append('last item');
+list.pop();
 
 console.log(list);
