@@ -92,17 +92,19 @@ class LinkedList {
 
     contains = (value) => {
         let currentNode = this.head;
-        //tried currentNode.data and it didn't work
+        if (currentNode.data === value) {
+            return true;
+        }
         while (currentNode.next !== null) {
-            if (currentNode.data === value) {
+            currentNode = currentNode.next;
+
+            if (currentNode.data == value) {
                 return true;
             }
-            currentNode = currentNode.next;
         }
         return false;
 
     }
-
 
 }
 
@@ -114,5 +116,3 @@ list.append('4th');
 list.prepend('new first');
 list.prepend('new new first');
 list.append('last item');
-
-console.log(list.contains('last item'));
