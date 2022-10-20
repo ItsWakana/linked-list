@@ -38,15 +38,14 @@ class LinkedList {
     }
 
     size = () => {
-        const countNodes = (node, total) => {
-            if (node.next === null) {
-                return total;
-            }
-            return countNodes(node.next, total+1);
+        let temp = this.head;
+        let total = 1;
+        while (temp.next !== null) {
+            temp = temp.next;
+            total++;
         }
 
-        const totalNodes = countNodes(this.head, 1);
-        console.log(totalNodes);
+        return total;
     }
 
     headNode = () => {
