@@ -16,17 +16,18 @@ class LinkedList {
     constructor() {
         this.head = new Node('one');
     }
+
+    findLast = (node) => {
+        if (node.next === null) {
+            return node;
+        }
+        return this.findLast(node.next);
+    }
     
     append = (value) => {
         const node = new Node(value);
-        const findEnd = (node) => {
-            if (node.next === null) {
-                return node;
-            }
-            return findEnd(node.next);
-        }
 
-        const lastNode = findEnd(this.head);
+        const lastNode = this.findLast(this.head);
         lastNode.next = node;
     }
     
@@ -45,6 +46,16 @@ class LinkedList {
         }
 
         const totalNodes = countNodes(this.head, 1);
+        console.log(totalNodes);
+    }
+
+    headNode = () => {
+        console.log(this.head);
+    }
+
+    tail = () => {
+        const lastNode = this.findLast(this.head);
+        console.log(lastNode);
     }
 
 
@@ -58,6 +69,4 @@ list.append('4th');
 list.prepend('new first');
 list.prepend('new new first');
 list.append('last item');
-list.size();
-
-console.log(list);
+list.headNode();
