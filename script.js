@@ -51,8 +51,14 @@ class LinkedList {
     }
 
     tail = () => {
-        const lastNode = this.findLast(this.head);
-        return lastNode;
+        let temp = this.head;
+
+        while (temp.next !== null) {
+            temp = temp.next;
+
+        }
+        console.log(temp);
+        
     }
 
     at = (index) => {
@@ -75,15 +81,26 @@ class LinkedList {
     pop = () => {
         let temp = this.head;
         let before;
-        let counter = 1;
 
         while (temp.next !== null) {
-            counter++;
             before = temp;
             temp = temp.next;
         }
 
         before.next = null;
+    }
+
+    contains = (value) => {
+        let currentNode = this.head;
+        //tried currentNode.data and it didn't work
+        while (currentNode.next !== null) {
+            if (currentNode.data === value) {
+                return true;
+            }
+            currentNode = currentNode.next;
+        }
+        return false;
+
     }
 
 
@@ -97,6 +114,5 @@ list.append('4th');
 list.prepend('new first');
 list.prepend('new new first');
 list.append('last item');
-list.pop();
 
-console.log(list);
+console.log(list.contains('last item'));
