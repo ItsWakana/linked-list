@@ -62,7 +62,7 @@ class LinkedList {
     }
 
     at = (index) => {
-        let counter = 1;
+        let counter = 0;
         let temp = this.head;
 
         if (counter === index) {
@@ -106,6 +106,38 @@ class LinkedList {
 
     }
 
+    find = (value) => {
+        let counter = 0;
+
+        let currentNode = this.head;
+        if (currentNode.data === value) {
+            return 0;
+        }
+
+        while (currentNode.next !== null) {
+            currentNode = currentNode.next;
+            counter++;
+
+            if (currentNode.data === value) {
+                return counter;
+            }
+        }
+
+        return null;
+    }
+
+    toString = () => {
+        let currentNode = this.head;
+        let string = `( ${this.head.data} )`
+
+        while (currentNode.next !== null) {
+            currentNode = currentNode.next;
+            string += ` => ( ${currentNode.data} )`;
+        }
+        string += ` => ${currentNode.next}`;
+        console.log(string);
+    }
+
 }
 
 const list = new LinkedList;
@@ -113,6 +145,5 @@ const list = new LinkedList;
 list.append('2nd');
 list.append('3rd');
 list.append('4th');
-list.prepend('new first');
-list.prepend('new new first');
-list.append('last item');
+list.prepend('I am number one');
+list.toString();
