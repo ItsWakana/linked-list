@@ -14,7 +14,7 @@ class Node {
 class LinkedList {
 
     constructor() {
-        this.head = new Node('1st');
+        this.head = new Node('1');
     }
     
     append = (value) => {
@@ -137,7 +137,7 @@ class LinkedList {
         string += ` => ${currentNode.next}`;
         console.log(string);
     }
-    
+
     insertAt = (value, index) => {
 
         const node = new Node(value);
@@ -164,18 +164,16 @@ class LinkedList {
             nextNode = nextNode.next;
             counter++;
         }
-        return currentNode;
-
     }
 
 }
 
 const list = new LinkedList;
 
-list.append('2nd');
-list.append('3rd');
-list.append('4th');
-list.append('5th');
-list.append('6th');
-list.insertAt('newly inserted', 0);
+list.append('2');
+list.append('3');
+list.append('4');
+list.append('5');
+list.append('6');
+list.insertAt('newly inserted', 5);
 list.toString();
