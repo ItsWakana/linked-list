@@ -14,7 +14,7 @@ class Node {
 class LinkedList {
 
     constructor() {
-        this.head = new Node('one');
+        this.head = new Node('1st');
     }
     
     append = (value) => {
@@ -137,6 +137,36 @@ class LinkedList {
         string += ` => ${currentNode.next}`;
         console.log(string);
     }
+    
+    insertAt = (value, index) => {
+
+        const node = new Node(value);
+        let previousNode;
+        let currentNode = this.head;
+        let nextNode = currentNode.next;
+        let counter = 0;
+
+        if (index === 0) {
+            node.next = currentNode;
+            this.head = node;
+            return;
+        }
+
+        while (currentNode.next !== null) {
+            if (counter === index) {
+
+                previousNode.next = node;
+                node.next = currentNode;
+                return;
+            }
+            previousNode = currentNode;
+            currentNode = currentNode.next;
+            nextNode = nextNode.next;
+            counter++;
+        }
+        return currentNode;
+
+    }
 
 }
 
@@ -145,5 +175,7 @@ const list = new LinkedList;
 list.append('2nd');
 list.append('3rd');
 list.append('4th');
-list.prepend('I am number one');
+list.append('5th');
+list.append('6th');
+list.insertAt('newly inserted', 0);
 list.toString();
