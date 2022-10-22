@@ -164,6 +164,38 @@ class LinkedList {
             nextNode = nextNode.next;
             counter++;
         }
+        counter++;
+        if (currentNode.next === null && counter === index) {
+            currentNode.next = node;
+        } else {
+            previousNode.next = node;
+            node.next = currentNode;
+        }
+    }
+
+    removeAt = (index) => {
+        let previousNode;
+        let currentNode = this.head;
+        let nextNode = currentNode.next;
+        let counter = 0;
+
+        if (index === 0) {
+            return;
+        }
+
+        while (currentNode.next !== null) {
+            if (counter === index) {
+                previousNode.next = nextNode;
+                return;
+            }
+            previousNode = currentNode;
+            currentNode = nextNode;
+            nextNode = nextNode.next;
+            counter++;
+        }
+        if (currentNode.next === null && counter === index) {
+            previousNode.next = null;
+        }
     }
 
 }
@@ -175,5 +207,5 @@ list.append('3');
 list.append('4');
 list.append('5');
 list.append('6');
-list.insertAt('newly inserted', 5);
+list.removeAt(0);
 list.toString();
