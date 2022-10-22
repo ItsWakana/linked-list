@@ -180,6 +180,8 @@ class LinkedList {
         let counter = 0;
 
         if (index === 0) {
+            currentNode = nextNode;
+            this.head = currentNode;
             return;
         }
 
@@ -202,10 +204,13 @@ class LinkedList {
 
 const list = new LinkedList;
 
-list.append('2');
 list.append('3');
 list.append('4');
 list.append('5');
 list.append('6');
-list.removeAt(0);
+list.append('7');
+list.append('8');
+list.append('9');
+list.append('10');
+list.insertAt('2', 1)
 list.toString();
