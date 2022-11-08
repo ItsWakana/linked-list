@@ -7,3 +7,8 @@ This was my first project delving into a linear data structure and some methods 
 - Working with pointers
 - Changing and editing data in a linear structure
 - How to implement algorithms to work on a linear data strtucture
+
+## How I could improve moving forward
+
+- Better understand time complexity with data structures
+- Know when to use iterative methods vs recursive methods
